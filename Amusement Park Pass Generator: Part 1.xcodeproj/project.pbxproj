@@ -58,10 +58,18 @@
 				D4E95CE31D27576C002B1D0F /* ViewController.swift */,
 				D4E95CE51D27576C002B1D0F /* Main.storyboard */,
 				D4E95CE81D27576C002B1D0F /* Assets.xcassets */,
+				D4E95CF31D27589B002B1D0F /* Extra */,
+			);
+			path = "Amusement Park Pass Generator: Part 1";
+			sourceTree = "<group>";
+		};
+		D4E95CF31D27589B002B1D0F /* Extra */ = {
+			isa = PBXGroup;
+			children = (
 				D4E95CEA1D27576C002B1D0F /* LaunchScreen.storyboard */,
 				D4E95CED1D27576C002B1D0F /* Info.plist */,
 			);
-			path = "Amusement Park Pass Generator: Part 1";
+			name = Extra;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +296,7 @@
 				D4E95CF21D27576C002B1D0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
