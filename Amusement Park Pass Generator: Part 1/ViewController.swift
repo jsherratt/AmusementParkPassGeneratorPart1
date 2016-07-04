@@ -14,10 +14,17 @@ class ViewController: UIViewController {
     //MARK: Variables
     //-----------------------
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //Create a manager
+        do {
+            let manager = try Manager(firstName: "", lastName: "", streetAdress: "", city: "", state: "", zipCode: 0, socialSecurityNumber: 1, dateOfBirth: nil, employeeType: .GeneralManager)
+            
+        }catch {
+            print(error)
+        }
     }
     
     //-----------------------

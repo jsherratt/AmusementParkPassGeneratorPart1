@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4ACCAA41D29E4D3009A0E94 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAA31D29E4D3009A0E94 /* Pass.swift */; };
+		D4ACCAA81D29EAAC009A0E94 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAA71D29EAAC009A0E94 /* Employee.swift */; };
+		D4ACCAAA1D29EDFD009A0E94 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAA91D29EDFD009A0E94 /* Errors.swift */; };
+		D4ACCAAC1D29FB94009A0E94 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAAB1D29FB94009A0E94 /* Manager.swift */; };
+		D4ACCAAE1D2A0AC5009A0E94 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAAD1D2A0AC5009A0E94 /* Guest.swift */; };
 		D4E95CE21D27576C002B1D0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E95CE11D27576C002B1D0F /* AppDelegate.swift */; };
 		D4E95CE41D27576C002B1D0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E95CE31D27576C002B1D0F /* ViewController.swift */; };
 		D4E95CE71D27576C002B1D0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4E95CE51D27576C002B1D0F /* Main.storyboard */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D4ACCAA31D29E4D3009A0E94 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		D4ACCAA71D29EAAC009A0E94 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		D4ACCAA91D29EDFD009A0E94 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		D4ACCAAB1D29FB94009A0E94 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		D4ACCAAD1D2A0AC5009A0E94 /* Guest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
 		D4E95CDE1D27576C002B1D0F /* Amusement Park Pass Generator: Part 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amusement Park Pass Generator: Part 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E95CE11D27576C002B1D0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4E95CE31D27576C002B1D0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +66,11 @@
 			children = (
 				D4E95CE11D27576C002B1D0F /* AppDelegate.swift */,
 				D4E95CE31D27576C002B1D0F /* ViewController.swift */,
+				D4ACCAA31D29E4D3009A0E94 /* Pass.swift */,
+				D4ACCAAD1D2A0AC5009A0E94 /* Guest.swift */,
+				D4ACCAA71D29EAAC009A0E94 /* Employee.swift */,
+				D4ACCAAB1D29FB94009A0E94 /* Manager.swift */,
+				D4ACCAA91D29EDFD009A0E94 /* Errors.swift */,
 				D4E95CE51D27576C002B1D0F /* Main.storyboard */,
 				D4E95CE81D27576C002B1D0F /* Assets.xcassets */,
 				D4E95CF31D27589B002B1D0F /* Extra */,
@@ -144,6 +159,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4E95CE41D27576C002B1D0F /* ViewController.swift in Sources */,
+				D4ACCAA41D29E4D3009A0E94 /* Pass.swift in Sources */,
+				D4ACCAA81D29EAAC009A0E94 /* Employee.swift in Sources */,
+				D4ACCAAC1D29FB94009A0E94 /* Manager.swift in Sources */,
+				D4ACCAAA1D29EDFD009A0E94 /* Errors.swift in Sources */,
+				D4ACCAAE1D2A0AC5009A0E94 /* Guest.swift in Sources */,
 				D4E95CE21D27576C002B1D0F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
