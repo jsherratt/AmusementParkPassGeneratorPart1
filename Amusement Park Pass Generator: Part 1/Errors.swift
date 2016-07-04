@@ -20,4 +20,6 @@ enum Error: ErrorType {
     case MissingSocialSecurityNumber
     case MissingDateOfBirth
     case MissingType
+    case MissingPass
+    case IncorrectDateFormat
 }

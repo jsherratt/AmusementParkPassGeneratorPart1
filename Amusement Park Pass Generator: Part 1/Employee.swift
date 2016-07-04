@@ -13,7 +13,7 @@ import UIKit
 //-----------------------
 
 //Protocol that an employee has to conform to
-protocol EmployeeType{
+protocol EmployeeType: Entrant {
     
     var firstName: String { get }
     var lastName: String { get }
@@ -43,6 +43,8 @@ enum HourlyEmployees {
 //-----------------------
 struct Employee: EmployeeType {
     
+    var pass: Pass?
+    
     var firstName: String
     var lastName: String
     var streetAdress: String
@@ -53,7 +55,7 @@ struct Employee: EmployeeType {
     var dateOfBirth: NSDate
     var employeeType: HourlyEmployees
     
-    init(firstName: String?, lastName: String?, streetAdress: String?, city: String?, state: String?, zipCode: Int?, socialSecurityNumber: Int?, dateOfBirth: NSDate?, employeeType: HourlyEmployees?) throws {
+    init(firstName: String?, lastName: String?, streetAdress: String?, city: String?, state: String?, zipCode: Int?, socialSecurityNumber: Int?, dateOfBirth: String?, employeeType: HourlyEmployees?) throws {
         
         guard let firstOfName = firstName, let lastOfName = lastName else { throw Error.MissingName }
         
@@ -72,7 +74,7 @@ struct Employee: EmployeeType {
         self.state = state
         self.zipCode = zipCode
         self.socialSecurityNumber = ssn
-        self.dateOfBirth = dob
+        self.dateOfBirth = try DateFormatter.formatDateFromString(dob)
         self.employeeType = employee
     }
 }

@@ -13,7 +13,7 @@ import Foundation
 //-----------------------
 
 //Protocol that an employee has to conform to
-protocol ManagerType{
+protocol ManagerType: Entrant {
     
     var firstName: String { get }
     var lastName: String { get }
@@ -23,7 +23,7 @@ protocol ManagerType{
     var zipCode: Int { get }
     var socialSecurityNumber: Int { get }
     var dateOfBirth: NSDate { get }
-    var employeeType: Managers { get }
+    var managerType: Managers { get }
 }
 
 //-----------------------
@@ -43,6 +43,8 @@ enum Managers {
 //-----------------------
 struct Manager: ManagerType {
     
+    var pass: Pass?
+    
     var firstName: String
     var lastName: String
     var streetAdress: String
@@ -51,9 +53,9 @@ struct Manager: ManagerType {
     var zipCode: Int
     var socialSecurityNumber: Int
     var dateOfBirth: NSDate
-    var employeeType: Managers
+    var managerType: Managers
     
-    init(firstName: String?, lastName: String?, streetAdress: String?, city: String?, state: String?, zipCode: Int?, socialSecurityNumber: Int?, dateOfBirth: NSDate?, employeeType: Managers?) throws {
+    init(firstName: String?, lastName: String?, streetAdress: String?, city: String?, state: String?, zipCode: Int?, socialSecurityNumber: Int?, dateOfBirth: String?, managerType: Managers?) throws {
         
         guard let firstOfName = firstName, let lastOfName = lastName else { throw Error.MissingName }
         
@@ -63,8 +65,8 @@ struct Manager: ManagerType {
         
         guard let dob = dateOfBirth else { throw Error.MissingDateOfBirth }
         
-        guard let employee = employeeType else { throw Error.MissingType}
-        
+        guard let employee = managerType else { throw Error.MissingType}
+
         self.firstName = firstOfName
         self.lastName = lastOfName
         self.streetAdress = street
@@ -72,7 +74,7 @@ struct Manager: ManagerType {
         self.state = state
         self.zipCode = zipCode
         self.socialSecurityNumber = ssn
-        self.dateOfBirth = dob
-        self.employeeType = employee
+        self.dateOfBirth = try DateFormatter.formatDateFromString(dob)
+        self.managerType = employee
     }
 }
