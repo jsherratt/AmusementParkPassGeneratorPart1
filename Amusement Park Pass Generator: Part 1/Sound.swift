@@ -7,11 +7,16 @@
 //
 
 import Foundation
+import AudioToolbox
 
 //-----------------------
 //MARK: Structs
 //-----------------------
 struct Sound {
     
+    //-----------------------
+    //MARK: Variables
+    //-----------------------
+    var successSound: SystemSoundID = 0
     
 }
