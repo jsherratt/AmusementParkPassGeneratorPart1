@@ -18,5 +18,8 @@ struct Sound {
     //MARK: Variables
     //-----------------------
     var successSound: SystemSoundID = 0
+    var deniedSound: SystemSoundID = 0
+    
+    
     
 }
