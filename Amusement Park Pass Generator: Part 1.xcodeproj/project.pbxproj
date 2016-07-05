@@ -10,6 +10,8 @@
 		D414E2971D2A6E5500F636DC /* KioskControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D414E2961D2A6E5500F636DC /* KioskControl.swift */; };
 		D414E2991D2A883100F636DC /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D414E2981D2A883100F636DC /* DateFormatter.swift */; };
 		D4481D751D2BB2D2007233DB /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4481D741D2BB2D2007233DB /* Sound.swift */; };
+		D4481D7A1D2BB816007233DB /* AccessDenied.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4481D781D2BB816007233DB /* AccessDenied.wav */; };
+		D4481D7B1D2BB816007233DB /* AccessGranted.wav in Resources */ = {isa = PBXBuildFile; fileRef = D4481D791D2BB816007233DB /* AccessGranted.wav */; };
 		D4ACCAA41D29E4D3009A0E94 /* ParkPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAA31D29E4D3009A0E94 /* ParkPass.swift */; };
 		D4ACCAA81D29EAAC009A0E94 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAA71D29EAAC009A0E94 /* Employee.swift */; };
 		D4ACCAAA1D29EDFD009A0E94 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAA91D29EDFD009A0E94 /* Errors.swift */; };
@@ -27,6 +29,8 @@
 		D414E2961D2A6E5500F636DC /* KioskControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KioskControl.swift; sourceTree = "<group>"; };
 		D414E2981D2A883100F636DC /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		D4481D741D2BB2D2007233DB /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		D4481D781D2BB816007233DB /* AccessDenied.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AccessDenied.wav; sourceTree = "<group>"; };
+		D4481D791D2BB816007233DB /* AccessGranted.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AccessGranted.wav; sourceTree = "<group>"; };
 		D4ACCAA31D29E4D3009A0E94 /* ParkPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkPass.swift; sourceTree = "<group>"; };
 		D4ACCAA71D29EAAC009A0E94 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		D4ACCAA91D29EDFD009A0E94 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -73,6 +77,15 @@
 			name = ParkModels;
 			sourceTree = "<group>";
 		};
+		D4481D7C1D2BB81D007233DB /* AudioFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D4481D781D2BB816007233DB /* AccessDenied.wav */,
+				D4481D791D2BB816007233DB /* AccessGranted.wav */,
+			);
+			name = AudioFiles;
+			sourceTree = "<group>";
+		};
 		D4E95CD51D27576B002B1D0F = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +113,7 @@
 				D4ACCAA91D29EDFD009A0E94 /* Errors.swift */,
 				D414E2981D2A883100F636DC /* DateFormatter.swift */,
 				D4E95CE51D27576C002B1D0F /* Main.storyboard */,
+				D4481D7C1D2BB81D007233DB /* AudioFiles */,
 				D4E95CE81D27576C002B1D0F /* Assets.xcassets */,
 				D4E95CF31D27589B002B1D0F /* Extra */,
 			);
@@ -174,8 +188,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4E95CEC1D27576C002B1D0F /* LaunchScreen.storyboard in Resources */,
+				D4481D7B1D2BB816007233DB /* AccessGranted.wav in Resources */,
 				D4E95CE91D27576C002B1D0F /* Assets.xcassets in Resources */,
 				D4E95CE71D27576C002B1D0F /* Main.storyboard in Resources */,
+				D4481D7A1D2BB816007233DB /* AccessDenied.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
