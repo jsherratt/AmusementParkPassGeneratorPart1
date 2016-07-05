@@ -12,7 +12,8 @@ protocol Kiosk {
     
     func createPassForEntrant(entrant: Entrant) -> Pass
     func validateAreaAccessForPass(pass: Pass, area areas: AreaAccess) -> Bool
-    func validateRideAccessForPass(pass: Pass, ride area: AreaAccess) -> Bool
+    func validateRideAccessForPass(pass: Pass, ride: RideAccess) -> Bool
+    func validateDiscountAccessForPass(pass: Pass, discount: DiscountAccess) -> Bool
 }
 
 struct KioskControl: Kiosk {
@@ -25,7 +26,7 @@ struct KioskControl: Kiosk {
     func validateAreaAccessForPass(pass: Pass, area: AreaAccess) -> Bool {
         
         for access in pass.areaAccess {
-            
+
             if access == area {
                 
                 return true
@@ -34,15 +35,20 @@ struct KioskControl: Kiosk {
         return false
     }
     
-    func validateRideAccessForPass(pass: Pass, ride area: AreaAccess) -> Bool {
+    func validateRideAccessForPass(pass: Pass, ride: RideAccess) -> Bool {
         
-        for access in pass.areaAccess {
+        for access in pass.rideAccess {
             
-            if access == area {
+            if access == ride {
                 
                 return true
             }
         }
+        return false
+    }
+    
+    func validateDiscountAccessForPass(pass: Pass, discount: DiscountAccess) -> Bool {
+        
         return false
     }
 }

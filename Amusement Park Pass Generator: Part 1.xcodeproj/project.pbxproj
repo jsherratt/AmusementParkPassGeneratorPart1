@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		D414E2971D2A6E5500F636DC /* KioskControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D414E2961D2A6E5500F636DC /* KioskControl.swift */; };
 		D414E2991D2A883100F636DC /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D414E2981D2A883100F636DC /* DateFormatter.swift */; };
-		D4ACCAA41D29E4D3009A0E94 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAA31D29E4D3009A0E94 /* Pass.swift */; };
+		D4481D751D2BB2D2007233DB /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4481D741D2BB2D2007233DB /* Sound.swift */; };
+		D4ACCAA41D29E4D3009A0E94 /* ParkPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAA31D29E4D3009A0E94 /* ParkPass.swift */; };
 		D4ACCAA81D29EAAC009A0E94 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAA71D29EAAC009A0E94 /* Employee.swift */; };
 		D4ACCAAA1D29EDFD009A0E94 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAA91D29EDFD009A0E94 /* Errors.swift */; };
 		D4ACCAAC1D29FB94009A0E94 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ACCAAB1D29FB94009A0E94 /* Manager.swift */; };
@@ -25,7 +26,8 @@
 /* Begin PBXFileReference section */
 		D414E2961D2A6E5500F636DC /* KioskControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KioskControl.swift; sourceTree = "<group>"; };
 		D414E2981D2A883100F636DC /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
-		D4ACCAA31D29E4D3009A0E94 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		D4481D741D2BB2D2007233DB /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		D4ACCAA31D29E4D3009A0E94 /* ParkPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkPass.swift; sourceTree = "<group>"; };
 		D4ACCAA71D29EAAC009A0E94 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		D4ACCAA91D29EDFD009A0E94 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D4ACCAAB1D29FB94009A0E94 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
@@ -51,6 +53,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4481D761D2BB2F6007233DB /* EntrantModels */ = {
+			isa = PBXGroup;
+			children = (
+				D4ACCAAD1D2A0AC5009A0E94 /* Guest.swift */,
+				D4ACCAA71D29EAAC009A0E94 /* Employee.swift */,
+				D4ACCAAB1D29FB94009A0E94 /* Manager.swift */,
+			);
+			name = EntrantModels;
+			sourceTree = "<group>";
+		};
+		D4481D771D2BB326007233DB /* ParkModels */ = {
+			isa = PBXGroup;
+			children = (
+				D4E9643E1D2A260A003726C5 /* Entrant.swift */,
+				D414E2961D2A6E5500F636DC /* KioskControl.swift */,
+				D4ACCAA31D29E4D3009A0E94 /* ParkPass.swift */,
+			);
+			name = ParkModels;
+			sourceTree = "<group>";
+		};
 		D4E95CD51D27576B002B1D0F = {
 			isa = PBXGroup;
 			children = (
@@ -72,12 +94,9 @@
 			children = (
 				D4E95CE11D27576C002B1D0F /* AppDelegate.swift */,
 				D4E95CE31D27576C002B1D0F /* ViewController.swift */,
-				D414E2961D2A6E5500F636DC /* KioskControl.swift */,
-				D4ACCAA31D29E4D3009A0E94 /* Pass.swift */,
-				D4E9643E1D2A260A003726C5 /* Entrant.swift */,
-				D4ACCAAD1D2A0AC5009A0E94 /* Guest.swift */,
-				D4ACCAA71D29EAAC009A0E94 /* Employee.swift */,
-				D4ACCAAB1D29FB94009A0E94 /* Manager.swift */,
+				D4481D771D2BB326007233DB /* ParkModels */,
+				D4481D761D2BB2F6007233DB /* EntrantModels */,
+				D4481D741D2BB2D2007233DB /* Sound.swift */,
 				D4ACCAA91D29EDFD009A0E94 /* Errors.swift */,
 				D414E2981D2A883100F636DC /* DateFormatter.swift */,
 				D4E95CE51D27576C002B1D0F /* Main.storyboard */,
@@ -168,7 +187,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4E95CE41D27576C002B1D0F /* ViewController.swift in Sources */,
-				D4ACCAA41D29E4D3009A0E94 /* Pass.swift in Sources */,
+				D4481D751D2BB2D2007233DB /* Sound.swift in Sources */,
+				D4ACCAA41D29E4D3009A0E94 /* ParkPass.swift in Sources */,
 				D4ACCAA81D29EAAC009A0E94 /* Employee.swift in Sources */,
 				D4ACCAAC1D29FB94009A0E94 /* Manager.swift in Sources */,
 				D414E2991D2A883100F636DC /* DateFormatter.swift in Sources */,

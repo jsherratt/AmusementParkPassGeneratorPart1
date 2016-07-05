@@ -18,6 +18,7 @@ protocol ParkPassType {
     var type: String? { get }
     var areaAccess: [AreaAccess] { get }
     var rideAccess: [RideAccess] { get }
+    var discountAccess: [DiscountAccess]? { get }
 }
 
 //-----------------------
@@ -44,7 +45,7 @@ enum AreaAccess {
     case MaintenanceAreas
     case OfficeAreas
     
-    static func validateAccessForEntrant(entrant: Entrant) -> [AreaAccess] {
+    static func validateAreaAccessForEntrant(entrant: Entrant) -> [AreaAccess] {
         
         var access = [AreaAccess]()
         
@@ -78,7 +79,7 @@ enum RideAccess {
     case AccessAllRides
     case SkipAllRideLines
     
-    static func validateAccessForEntrant(entrant: Entrant) -> [RideAccess] {
+    static func validateRideAccessForEntrant(entrant: Entrant) -> [RideAccess] {
         
         var access = [RideAccess]()
         
@@ -104,6 +105,38 @@ enum RideAccess {
     }
 }
 
+enum DiscountAccess {
+    
+    case DiscountOnFood(amount: Int)
+    case DiscoundOnMerchandise(amount: Int)
+    
+    static func validateDiscountForEntrant(entrant: Entrant) -> [DiscountAccess]? {
+        
+        var discount = [DiscountAccess]?()
+        
+        switch entrant {
+            
+        case let guest as Guest:
+            
+            switch guest.guestType {
+                
+            case .Classic, .FreeChild: discount = nil
+                
+            case .VIP: discount = [.DiscountOnFood(amount: 10), .DiscoundOnMerchandise(amount: 20)]
+                
+            }
+            
+        case is Employee: discount = [.DiscountOnFood(amount: 15), .DiscoundOnMerchandise(amount: 25)]
+            
+        case is Manager: discount = [.DiscountOnFood(amount: 25), .DiscoundOnMerchandise(amount: 25)]
+            
+        default: break
+            
+        }
+        return discount
+    }
+}
+
 //-----------------------
 //MARK: Structs
 //-----------------------
@@ -114,6 +147,7 @@ struct Pass: ParkPassType {
     var type: String?
     var areaAccess: [AreaAccess]
     var rideAccess: [RideAccess]
+    var discountAccess: [DiscountAccess]?
     
     init(entrant: Entrant) {
         
@@ -159,8 +193,9 @@ struct Pass: ParkPassType {
             
         }
         
-        self.areaAccess = AreaAccess.validateAccessForEntrant(entrant)
-        self.rideAccess = RideAccess.validateAccessForEntrant(entrant)
+        self.areaAccess = AreaAccess.validateAreaAccessForEntrant(entrant)
+        self.rideAccess = RideAccess.validateRideAccessForEntrant(entrant)
+        self.discountAccess = DiscountAccess.validateDiscountForEntrant(entrant)
     }
 }
 

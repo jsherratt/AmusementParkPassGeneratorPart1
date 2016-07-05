@@ -21,5 +21,6 @@ enum Error: ErrorType {
     case MissingDateOfBirth
     case MissingType
     case MissingPass
+    case DeniedAccess
     case IncorrectDateFormat
 }

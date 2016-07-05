@@ -8,15 +8,31 @@
 
 import Foundation
 
+//-----------------------
+//MARK: Structs
+//-----------------------
 struct DateFormatter {
     
     static var dateFormatter = NSDateFormatter()
     
+    //Convert and format from a sting to a date
     static func formatDateFromString(date: String) throws -> NSDate {
         
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateStyle = .ShortStyle
         
         guard let convertedDate: NSDate = dateFormatter.dateFromString(date) else {
+            
+            throw Error.IncorrectDateFormat
+        }
+        return convertedDate
+    }
+    
+    //Convert and format from a date to a string
+    static func convertDateToString(date: NSDate) throws -> String {
+        
+        dateFormatter.dateStyle = .ShortStyle
+        
+        guard let convertedDate: String = dateFormatter.stringFromDate(date) else {
             
             throw Error.IncorrectDateFormat
         }

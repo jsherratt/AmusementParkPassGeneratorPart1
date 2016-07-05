@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //Create a manager
+        /*
         do {
             let manager = try Manager(firstName: "", lastName: "", streetAdress: "", city: "", state: "", zipCode: 0, socialSecurityNumber: 1, dateOfBirth: "10/05/2004", managerType: .GeneralManager)
             person = manager
@@ -28,19 +29,35 @@ class ViewController: UIViewController {
         }catch {
             print(error)
         }
+        */
         
+        //Create free child
+        
+        do {
+            let classicGuest = try Guest(dateOfbirth: "05/08/04", guestType: .Classic)
+            person = classicGuest
+        
+        }catch {
+            print(error)
+        }
+ 
+        
+        //Create pass and check if person can enter an area
         if var person = self.person {
             
             let pass = self.kioskControl.createPassForEntrant(person)
             person.pass = pass
             
             do {
-                try person.swipePass(forArea: .KitchenAreas)
+                try person.swipePass(forArea: .RideControlAreas)
                 
             } catch Error.MissingPass {
-                print("You do not have access to this area. Please check your pass!")
+                print("You do not have a pass. Please get one!")
                 
-            } catch {
+            } catch Error.DeniedAccess {
+                print("You do not have access to this area")
+                
+            }catch {
                 print(error)
             }
         }

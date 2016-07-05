@@ -28,17 +28,38 @@ struct Guest: Entrant {
     
     init(dateOfbirth: String?, guestType: Guests) throws {
         
+        func childIsYoungerThanFive (date: NSDate) -> Bool {
+            
+            let currentDate = NSDate()
+            let calender = NSCalendar.currentCalendar()
+            let components = calender.components(.Year, fromDate: date, toDate: currentDate, options: .MatchFirst)
+            
+            if components.year <= 5 {
+                return true
+            }else {
+                return false
+            }
+        }
+        
         switch guestType {
             
         case .FreeChild:
             
             guard let dob = dateOfbirth else { throw Error.MissingDateOfBirth }
             
-            self.dateOfBirth = try DateFormatter.formatDateFromString(dob)
+            let convertedDate = try DateFormatter.formatDateFromString(dob)
             
-            self.guestType = .FreeChild
+            self.dateOfBirth = convertedDate
             
-            //TODO: check if child is younger than 5 years old
+            if childIsYoungerThanFive(convertedDate) == true {
+                
+                self.guestType = .FreeChild
+                print("child is younger than five so is a free child!")
+                
+            }else {
+                
+                self.guestType = .Classic
+            }
             
         default: self.guestType = guestType
         }
