@@ -44,8 +44,9 @@ enum AreaAccess {
     case RideControlAreas
     case MaintenanceAreas
     case OfficeAreas
+    case Area
     
-    static func validateAreaAccessForEntrant(entrant: Entrant) -> [AreaAccess] {
+    static func validateAreaAccess(forEntrant entrant: Entrant) -> [AreaAccess] {
         
         var access = [AreaAccess]()
         
@@ -79,7 +80,7 @@ enum RideAccess {
     case AccessAllRides
     case SkipAllRideLines
     
-    static func validateRideAccessForEntrant(entrant: Entrant) -> [RideAccess] {
+    static func validateRideAccess(forEntrant entrant: Entrant) -> [RideAccess] {
         
         var access = [RideAccess]()
         
@@ -110,7 +111,7 @@ enum DiscountAccess {
     case DiscountOnFood(amount: Int)
     case DiscoundOnMerchandise(amount: Int)
     
-    static func validateDiscountForEntrant(entrant: Entrant) -> [DiscountAccess]? {
+    static func validateDiscount(forEntrant entrant: Entrant) -> [DiscountAccess]? {
         
         var discount = [DiscountAccess]?()
         
@@ -193,9 +194,9 @@ struct Pass: ParkPassType {
             
         }
         
-        self.areaAccess = AreaAccess.validateAreaAccessForEntrant(entrant)
-        self.rideAccess = RideAccess.validateRideAccessForEntrant(entrant)
-        self.discountAccess = DiscountAccess.validateDiscountForEntrant(entrant)
+        self.areaAccess = AreaAccess.validateAreaAccess(forEntrant: entrant)
+        self.rideAccess = RideAccess.validateRideAccess(forEntrant: entrant)
+        self.discountAccess = DiscountAccess.validateDiscount(forEntrant: entrant)
     }
 }
 

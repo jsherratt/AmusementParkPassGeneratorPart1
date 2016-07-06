@@ -23,13 +23,18 @@ extension Entrant {
         guard let pass = pass else { throw Error.MissingPass }
         
         let kioskControl = KioskControl()
+        var sound = Sound()
         
-        if kioskControl.validateAreaAccessForPass(pass, area: area) == true {
+        if kioskControl.validateAreaAccess(forPass: pass, area: area) == true {
+
+            print("You have been GRANTED access to: \(area)")
+            sound.playSound(withSound: .AccessGranted)
+            checkForGuestBirthday()
             
-            print("Success! you have been granted access to: \(area)")
         }else {
             
-            print("Error you have not been granted access to: \(area)")
+            print("You have been DENIED access to: \(area)")
+            sound.playSound(withSound: .AccessDenied)
             throw Error.DeniedAccess
         }
     }
@@ -39,14 +44,18 @@ extension Entrant {
         guard let pass = pass else { throw Error.MissingPass }
         
         let kioskControl = KioskControl()
+        var sound = Sound()
         
-        if kioskControl.validateRideAccessForPass(pass, ride: ride) == true {
+        if kioskControl.validateRideAccess(forPass: pass, ride: ride) == true {
             
-            print("Success! you have been granted access to: \(ride)")
+            print("Success! you have been GRANTED access to: \(ride)")
+            sound.playSound(withSound: .AccessGranted)
+            checkForGuestBirthday()
             
         }else {
             
-            print("Error you have not been granted access to: \(ride)")
+            print("You have been DENIED access to: \(ride)")
+            sound.playSound(withSound: .AccessDenied)
             throw Error.DeniedAccess
         }
     }
@@ -56,15 +65,60 @@ extension Entrant {
         guard let pass = pass else { throw Error.MissingPass }
         
         let kioskControl = KioskControl()
+        var sound = Sound()
         
-        if kioskControl.validateDiscountAccessForPass(pass, discount: discount) == true {
+        if kioskControl.validateDiscountAccess(forPass: pass, discount: discount) == true {
             
-            print("Success! you have been granted access to: \(discount)")
+            print("You have been GRANTED access to: \(discount)")
+            sound.playSound(withSound: .AccessGranted)
+            checkForGuestBirthday()
             
         }else {
             
-            print("Error you have not been granted access to: \(discount)")
+            print("You have been DENIED access to: \(discount)")
+            sound.playSound(withSound: .AccessDenied)
             throw Error.DeniedAccess
+        }
+    }
+    
+    func checkBirthday(withBirthday birthday: NSDate) {
+        
+        let calendar = NSCalendar.currentCalendar()
+        let todayComponents = calendar.components([.Month, .Day], fromDate: NSDate())
+        let birthdayComponents = calendar.components([.Month, .Day], fromDate: birthday)
+        
+        if todayComponents.month == birthdayComponents.month && todayComponents.day == birthdayComponents.day {
+            print("Happy Birthday!")
+        }else {
+            print("Not your birthday")
+        }
+    }
+    
+    func checkForGuestBirthday() {
+        
+        switch self {
+            
+        case let guest as Guest:
+            
+            if let birthday: NSDate = guest.dateOfBirth {
+                
+                checkBirthday(withBirthday: birthday)
+            }
+            
+        case let employee as Employee:
+            
+            if let birthday: NSDate = employee.dateOfBirth {
+                
+                checkBirthday(withBirthday: birthday)
+            }
+            
+        case let manager as Manager:
+            
+            if let birthday: NSDate = manager.dateOfBirth {
+                
+                checkBirthday(withBirthday: birthday)
+            }
+        default: break
         }
     }
 }

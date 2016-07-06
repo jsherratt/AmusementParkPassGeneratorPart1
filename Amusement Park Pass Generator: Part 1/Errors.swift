@@ -22,5 +22,6 @@ enum Error: ErrorType {
     case MissingType
     case MissingPass
     case DeniedAccess
+    case MissingSound
     case IncorrectDateFormat
 }

@@ -15,14 +15,17 @@ class ViewController: UIViewController {
     //-----------------------
     var kioskControl = KioskControl()
     var person: Entrant?
-    
+
+    //-----------------------
+    //MARK: View
+    //-----------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Create a manager
         /*
         do {
-            let manager = try Manager(firstName: "", lastName: "", streetAdress: "", city: "", state: "", zipCode: 0, socialSecurityNumber: 1, dateOfBirth: "10/05/2004", managerType: .GeneralManager)
+            let manager = try Manager(firstName: "", lastName: "", streetAdress: "", city: "", state: "", zipCode: 0, socialSecurityNumber: 1, dateOfBirth: "07/06/16", managerType: .GeneralManager)
             person = manager
             print(manager.dateOfBirth)
             
@@ -34,9 +37,10 @@ class ViewController: UIViewController {
         //Create free child
         
         do {
-            let classicGuest = try Guest(dateOfbirth: "05/08/04", guestType: .Classic)
-            person = classicGuest
-        
+            let freeChildGuest = try Guest(dateOfbirth: "07/06/16", guestType: .FreeChild)
+            person = freeChildGuest
+            print(freeChildGuest.dateOfBirth!)
+            
         }catch {
             print(error)
         }
@@ -45,11 +49,12 @@ class ViewController: UIViewController {
         //Create pass and check if person can enter an area
         if var person = self.person {
             
-            let pass = self.kioskControl.createPassForEntrant(person)
+            let pass = self.kioskControl.createPass(forEntrant: person)
             person.pass = pass
             
             do {
-                try person.swipePass(forArea: .RideControlAreas)
+            
+                try person.swipePass(forArea: .AmusementAreas)
                 
             } catch Error.MissingPass {
                 print("You do not have a pass. Please get one!")

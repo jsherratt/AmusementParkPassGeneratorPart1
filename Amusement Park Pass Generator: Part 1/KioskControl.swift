@@ -10,20 +10,20 @@ import Foundation
 
 protocol Kiosk {
     
-    func createPassForEntrant(entrant: Entrant) -> Pass
-    func validateAreaAccessForPass(pass: Pass, area areas: AreaAccess) -> Bool
-    func validateRideAccessForPass(pass: Pass, ride: RideAccess) -> Bool
-    func validateDiscountAccessForPass(pass: Pass, discount: DiscountAccess) -> Bool
+    func createPass(forEntrant entrant: Entrant) -> Pass
+    func validateAreaAccess(forPass pass: Pass, area areas: AreaAccess) -> Bool
+    func validateRideAccess(forPass pass: Pass, ride: RideAccess) -> Bool
+    func validateDiscountAccess(forPass pass: Pass, discount: DiscountAccess) -> Bool
 }
 
 struct KioskControl: Kiosk {
     
-    func createPassForEntrant(entrant: Entrant) -> Pass {
+    func createPass(forEntrant entrant: Entrant) -> Pass {
         
         return Pass(entrant: entrant)
     }
     
-    func validateAreaAccessForPass(pass: Pass, area: AreaAccess) -> Bool {
+    func validateAreaAccess(forPass pass: Pass, area: AreaAccess) -> Bool {
         
         for access in pass.areaAccess {
 
@@ -35,7 +35,7 @@ struct KioskControl: Kiosk {
         return false
     }
     
-    func validateRideAccessForPass(pass: Pass, ride: RideAccess) -> Bool {
+    func validateRideAccess(forPass pass: Pass, ride: RideAccess) -> Bool {
         
         for access in pass.rideAccess {
             
@@ -47,7 +47,34 @@ struct KioskControl: Kiosk {
         return false
     }
     
-    func validateDiscountAccessForPass(pass: Pass, discount: DiscountAccess) -> Bool {
+    func validateDiscountAccess(forPass pass: Pass, discount: DiscountAccess) -> Bool {
+        
+        if let discountAccess = pass.discountAccess {
+            
+            for discountAcc in discountAccess {
+                
+                switch (discountAcc, discount) {
+                    
+                case (let .DiscountOnFood(amount: value1), let .DiscountOnFood(amount: value2)):
+                    
+                    if value1 == value2 {
+                        return true
+                    }else {
+                        return false
+                    }
+                
+                case (let .DiscoundOnMerchandise(amount: value1), let .DiscoundOnMerchandise(amount: value2)):
+                    
+                    if value1 == value2 {
+                        return true
+                    }else {
+                        return false
+                    }
+                    
+                default:break
+                }
+            }
+        }
         
         return false
     }

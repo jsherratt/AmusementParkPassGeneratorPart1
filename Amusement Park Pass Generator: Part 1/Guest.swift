@@ -9,6 +9,15 @@
 import Foundation
 
 //-----------------------
+//MARK: Protocols
+//-----------------------
+protocol GuestType: Entrant {
+    
+    var dateOfBirth: NSDate? { get }
+    var guestType: Guests { get }
+}
+
+//-----------------------
 //MARK: Enums
 //-----------------------
 
@@ -20,7 +29,7 @@ enum Guests {
     case FreeChild
 }
 
-struct Guest: Entrant {
+struct Guest: GuestType {
     
     var pass: Pass?
     var guestType: Guests
@@ -46,9 +55,7 @@ struct Guest: Entrant {
         case .FreeChild:
             
             guard let dob = dateOfbirth else { throw Error.MissingDateOfBirth }
-            
             let convertedDate = try DateFormatter.formatDateFromString(dob)
-            
             self.dateOfBirth = convertedDate
             
             if childIsYoungerThanFive(convertedDate) == true {
