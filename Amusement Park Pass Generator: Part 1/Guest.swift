@@ -55,7 +55,8 @@ struct Guest: GuestType {
         case .FreeChild:
             
             guard let dob = dateOfbirth else { throw Error.MissingDateOfBirth }
-            let convertedDate = try DateFormatter.formatDateFromString(dob)
+            
+            let convertedDate = try DateFormatter.convertString(toDate: dob)
             self.dateOfBirth = convertedDate
             
             if childIsYoungerThanFive(convertedDate) == true {
@@ -65,10 +66,22 @@ struct Guest: GuestType {
                 
             }else {
                 
+                if let dob = dateOfbirth {
+                    let convertedDate = try DateFormatter.convertString(toDate: dob)
+                    self.dateOfBirth = convertedDate
+                }
+                
                 self.guestType = .Classic
             }
             
-        default: self.guestType = guestType
+        default:
+            
+            if let dob = dateOfbirth {
+                let convertedDate = try DateFormatter.convertString(toDate: dob)
+                self.dateOfBirth = convertedDate
+            }
+            
+            self.guestType = guestType
         }
     }
 }

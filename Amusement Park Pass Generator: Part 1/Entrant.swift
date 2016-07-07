@@ -69,13 +69,13 @@ extension Entrant {
         
         if kioskControl.validateDiscountAccess(forPass: pass, discount: discount) == true {
             
-            print("You have been GRANTED access to: \(discount)")
+            print("You have been GRANTED access to: \(discount)%")
             sound.playSound(withSound: .AccessGranted)
             checkForGuestBirthday()
             
         }else {
             
-            print("You have been DENIED access to: \(discount)")
+            print("You have been DENIED access to: \(discount)%")
             sound.playSound(withSound: .AccessDenied)
             throw Error.DeniedAccess
         }
@@ -89,8 +89,6 @@ extension Entrant {
         
         if todayComponents.month == birthdayComponents.month && todayComponents.day == birthdayComponents.day {
             print("Happy Birthday!")
-        }else {
-            print("Not your birthday")
         }
     }
     

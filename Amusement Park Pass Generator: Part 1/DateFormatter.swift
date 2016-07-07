@@ -16,7 +16,7 @@ struct DateFormatter {
     static var dateFormatter = NSDateFormatter()
     
     //Convert and format from a sting to a date
-    static func formatDateFromString(date: String) throws -> NSDate {
+    static func convertString(toDate date: String) throws -> NSDate {
         
         dateFormatter.dateFormat = "MM/dd/yy"
         dateFormatter.dateStyle = .ShortStyle
@@ -29,7 +29,7 @@ struct DateFormatter {
     }
     
     //Convert and format from a date to a string
-    static func convertDateToString(date: NSDate) throws -> String {
+    static func convertDate(toString date: NSDate) throws -> String {
         
         dateFormatter.dateFormat = "MM/dd/yy"
         dateFormatter.dateStyle = .ShortStyle

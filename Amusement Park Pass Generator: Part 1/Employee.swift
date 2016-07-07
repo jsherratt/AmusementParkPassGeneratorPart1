@@ -17,7 +17,7 @@ protocol EmployeeType: Entrant {
     
     var firstName: String { get }
     var lastName: String { get }
-    var streetAdress: String { get }
+    var streetAddress: String { get }
     var city: String { get }
     var state: String { get }
     var zipCode: Int { get }
@@ -47,7 +47,7 @@ struct Employee: EmployeeType {
     
     var firstName: String
     var lastName: String
-    var streetAdress: String
+    var streetAddress: String
     var city: String
     var state: String
     var zipCode: Int
@@ -55,11 +55,11 @@ struct Employee: EmployeeType {
     var dateOfBirth: NSDate
     var employeeType: HourlyEmployees
     
-    init(firstName: String?, lastName: String?, streetAdress: String?, city: String?, state: String?, zipCode: Int?, socialSecurityNumber: Int?, dateOfBirth: String?, employeeType: HourlyEmployees?) throws {
+    init(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?, socialSecurityNumber: Int?, dateOfBirth: String?, employeeType: HourlyEmployees?) throws {
         
         guard let firstOfName = firstName, let lastOfName = lastName else { throw Error.MissingName }
         
-        guard let street = streetAdress, let city = city, let state = state, let zipCode = zipCode else { throw Error.MissingAdress }
+        guard let street = streetAddress, let city = city, let state = state, let zipCode = zipCode else { throw Error.MissingAddress }
         
         guard let ssn = socialSecurityNumber else { throw Error.MissingSocialSecurityNumber }
         
@@ -69,12 +69,12 @@ struct Employee: EmployeeType {
         
         self.firstName = firstOfName
         self.lastName = lastOfName
-        self.streetAdress = street
+        self.streetAddress = street
         self.city = city
         self.state = state
         self.zipCode = zipCode
         self.socialSecurityNumber = ssn
-        self.dateOfBirth = try DateFormatter.formatDateFromString(dob)
+        self.dateOfBirth = try DateFormatter.convertString(toDate: dob)
         self.employeeType = employee
     }
 }

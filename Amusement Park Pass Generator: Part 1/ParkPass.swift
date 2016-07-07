@@ -109,7 +109,7 @@ enum RideAccess {
 enum DiscountAccess {
     
     case DiscountOnFood(amount: Int)
-    case DiscoundOnMerchandise(amount: Int)
+    case DiscountOnMerchandise(amount: Int)
     
     static func validateDiscount(forEntrant entrant: Entrant) -> [DiscountAccess]? {
         
@@ -123,13 +123,13 @@ enum DiscountAccess {
                 
             case .Classic, .FreeChild: discount = nil
                 
-            case .VIP: discount = [.DiscountOnFood(amount: 10), .DiscoundOnMerchandise(amount: 20)]
+            case .VIP: discount = [.DiscountOnFood(amount: 10), .DiscountOnMerchandise(amount: 20)]
                 
             }
             
-        case is Employee: discount = [.DiscountOnFood(amount: 15), .DiscoundOnMerchandise(amount: 25)]
+        case is Employee: discount = [.DiscountOnFood(amount: 15), .DiscountOnMerchandise(amount: 25)]
             
-        case is Manager: discount = [.DiscountOnFood(amount: 25), .DiscoundOnMerchandise(amount: 25)]
+        case is Manager: discount = [.DiscountOnFood(amount: 25), .DiscountOnMerchandise(amount: 25)]
             
         default: break
             

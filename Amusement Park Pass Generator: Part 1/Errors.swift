@@ -16,7 +16,7 @@ import Foundation
 enum Error: ErrorType {
     
     case MissingName
-    case MissingAdress
+    case MissingAddress
     case MissingSocialSecurityNumber
     case MissingDateOfBirth
     case MissingType

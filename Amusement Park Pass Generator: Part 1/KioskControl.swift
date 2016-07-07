@@ -63,7 +63,7 @@ struct KioskControl: Kiosk {
                         return false
                     }
                 
-                case (let .DiscoundOnMerchandise(amount: value1), let .DiscoundOnMerchandise(amount: value2)):
+                case (let .DiscountOnMerchandise(amount: value1), let .DiscountOnMerchandise(amount: value2)):
                     
                     if value1 == value2 {
                         return true

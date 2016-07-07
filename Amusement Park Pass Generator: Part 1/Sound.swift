@@ -9,16 +9,22 @@
 import Foundation
 import AudioToolbox
 
-enum Sounds:String {
-    
-    case AccessGranted
-    case AccessDenied
-}
 
 //-----------------------
 //MARK: Structs
 //-----------------------
 struct Sound {
+    
+    enum Sounds:String {
+        
+        case AccessGranted
+        case AccessDenied
+    }
+    
+    private enum SoundType: String {
+        
+        case wav
+    }
     
     //-----------------------
     //MARK: Variables
@@ -32,7 +38,7 @@ struct Sound {
             
         case .AccessGranted:
             
-            if let pathToSound = NSBundle.mainBundle().pathForResource(Sounds.AccessGranted.rawValue, ofType: "wav") {
+            if let pathToSound = NSBundle.mainBundle().pathForResource(Sounds.AccessGranted.rawValue, ofType: SoundType.wav.rawValue) {
             
                 let url = NSURL(fileURLWithPath: pathToSound)
                 AudioServicesCreateSystemSoundID(url, &accessGrantedSound)
@@ -41,7 +47,7 @@ struct Sound {
             
         case .AccessDenied:
             
-            if let pathToSound = NSBundle.mainBundle().pathForResource(Sounds.AccessDenied.rawValue, ofType: "wav") {
+            if let pathToSound = NSBundle.mainBundle().pathForResource(Sounds.AccessDenied.rawValue, ofType: SoundType.wav.rawValue) {
             
                 let url = NSURL(fileURLWithPath: pathToSound)
                 AudioServicesCreateSystemSoundID(url, &accessDeniedSound)
@@ -51,7 +57,7 @@ struct Sound {
     }
     
     
-    
+    //Same version of the play sound function above but this one throws an error if the sound file is missing
     /*
      mutating func playSound(sound: Sounds) throws {
         
