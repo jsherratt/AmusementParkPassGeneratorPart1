@@ -8,6 +8,11 @@
 
 import Foundation
 
+//-----------------------
+//MARK: Protocols
+//-----------------------
+
+//Protocol that an entrant has to conform to
 protocol Entrant {
     
     var pass: Pass? { get set }
@@ -16,15 +21,23 @@ protocol Entrant {
     func swipePass(forDiscount discount: DiscountAccess) throws
 }
 
+//-----------------------
+//MARK: Extension
+//-----------------------
+
+//Extend the entrant protocol to create default implementation for swipe methods
 extension Entrant {
     
     func swipePass(forArea area: AreaAccess) throws {
         
+        //Check if a pass was created for the entrant. If not then throw missing pass error
         guard let pass = pass else { throw Error.MissingPass }
         
+        //Create instances of kiosk control and sound
         let kioskControl = KioskControl()
         var sound = Sound()
         
+        //Check if pass has access to specified area using the validate area access method
         if kioskControl.validateAreaAccess(forPass: pass, area: area) == true {
 
             print("You have been GRANTED access to: \(area)")
@@ -81,6 +94,7 @@ extension Entrant {
         }
     }
     
+    //Function to compare month and day of date of birth of entrant with current month and day
     func checkBirthday(withBirthday birthday: NSDate) {
         
         let calendar = NSCalendar.currentCalendar()
@@ -92,6 +106,7 @@ extension Entrant {
         }
     }
     
+    //Function that checks birthday switching on the type of entrant
     func checkForGuestBirthday() {
         
         switch self {

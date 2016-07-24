@@ -11,6 +11,8 @@ import Foundation
 //-----------------------
 //MARK: Protocols
 //-----------------------
+
+//Protocol that guest has to conform to
 protocol GuestType: Entrant {
     
     var dateOfBirth: NSDate? { get }
@@ -29,6 +31,10 @@ enum Guests {
     case FreeChild
 }
 
+
+//-----------------------
+//MARK: Structs
+//-----------------------
 struct Guest: GuestType {
     
     var pass: Pass?
@@ -37,6 +43,7 @@ struct Guest: GuestType {
     
     init(dateOfbirth: String?, guestType: Guests) throws {
         
+        //Function to check if the guest is younger that the age of 5
         func childIsYoungerThanFive (date: NSDate) -> Bool {
             
             let currentDate = NSDate()
@@ -54,11 +61,14 @@ struct Guest: GuestType {
             
         case .FreeChild:
             
+            //Check if child has date of birth
             guard let dob = dateOfbirth else { throw Error.MissingDateOfBirth }
             
+            //Convert date of birth from string to nsdate
             let convertedDate = try DateFormatter.convertString(toDate: dob)
             self.dateOfBirth = convertedDate
             
+            //Check if child is younger than 5
             if childIsYoungerThanFive(convertedDate) == true {
                 
                 self.guestType = .FreeChild

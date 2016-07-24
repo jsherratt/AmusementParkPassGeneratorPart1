@@ -13,7 +13,14 @@ import Foundation
 //-----------------------
 struct DateFormatter {
     
+    //-----------------------
+    //MARK: Variables
+    //-----------------------
     static var dateFormatter = NSDateFormatter()
+    
+    //-----------------------
+    //MARK: Functions
+    //-----------------------
     
     //Convert and format from a sting to a date
     static func convertString(toDate date: String) throws -> NSDate {

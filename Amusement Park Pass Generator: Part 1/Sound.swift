@@ -15,6 +15,9 @@ import AudioToolbox
 //-----------------------
 struct Sound {
     
+    //-----------------------
+    //MARK: Enums
+    //-----------------------
     enum Sounds:String {
         
         case AccessGranted
@@ -32,6 +35,10 @@ struct Sound {
     private var accessGrantedSound: SystemSoundID = 0
     private var accessDeniedSound: SystemSoundID = 1
     
+    
+    //-----------------------
+    //MARK: Functions
+    //-----------------------
     mutating func playSound(withSound sound: Sounds) {
         
         switch sound {
@@ -58,6 +65,7 @@ struct Sound {
     
     
     //Same version of the play sound function above but this one throws an error if the sound file is missing
+    
     /*
      mutating func playSound(sound: Sounds) throws {
         

@@ -11,6 +11,8 @@ import UIKit
 //-----------------------
 //MARK: Protocols
 //-----------------------
+
+//Protocol that a park pass has to conform to
 protocol ParkPassType {
     
     var image: UIImage? { get }
@@ -24,6 +26,8 @@ protocol ParkPassType {
 //-----------------------
 //MARK: Enums
 //-----------------------
+
+//Enum for different pass types
 enum PassType: String {
     
     case ClassicGuestPass = "Classic Guest Pass"
@@ -37,6 +41,7 @@ enum PassType: String {
     case ShiftManagerPass = "Shift Manager Pass"
 }
 
+//Enum for different access areas and a function to validate what areas different entrants can access
 enum AreaAccess {
     
     case AmusementAreas
@@ -44,7 +49,6 @@ enum AreaAccess {
     case RideControlAreas
     case MaintenanceAreas
     case OfficeAreas
-    case Area
     
     static func validateAreaAccess(forEntrant entrant: Entrant) -> [AreaAccess] {
         
@@ -75,6 +79,7 @@ enum AreaAccess {
     }
 }
 
+//Enum for ride access and a function to validate if entrants has access to all rides and/or can skip all ride lines
 enum RideAccess {
     
     case AccessAllRides
@@ -106,6 +111,7 @@ enum RideAccess {
     }
 }
 
+//Enum for discount access and a function to validate what entrants receive what type of discount
 enum DiscountAccess {
     
     case DiscountOnFood(amount: Int)

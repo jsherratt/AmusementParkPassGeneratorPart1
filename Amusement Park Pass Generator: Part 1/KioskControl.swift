@@ -8,6 +8,11 @@
 
 import Foundation
 
+//-----------------------
+//MARK: Protocols
+//-----------------------
+
+//Protocol that kiosk control has to conform to
 protocol Kiosk {
     
     func createPass(forEntrant entrant: Entrant) -> Pass
@@ -16,13 +21,19 @@ protocol Kiosk {
     func validateDiscountAccess(forPass pass: Pass, discount: DiscountAccess) -> Bool
 }
 
+
+//-----------------------
+//MARK: Structs
+//-----------------------
 struct KioskControl: Kiosk {
     
+    //Function to create a pass for an entrant
     func createPass(forEntrant entrant: Entrant) -> Pass {
         
         return Pass(entrant: entrant)
     }
     
+    //Function to validate area access for a pass
     func validateAreaAccess(forPass pass: Pass, area: AreaAccess) -> Bool {
         
         for access in pass.areaAccess {
@@ -35,6 +46,7 @@ struct KioskControl: Kiosk {
         return false
     }
     
+    //Function to validate ride access for a pass
     func validateRideAccess(forPass pass: Pass, ride: RideAccess) -> Bool {
         
         for access in pass.rideAccess {
@@ -47,6 +59,7 @@ struct KioskControl: Kiosk {
         return false
     }
     
+    //Function to validate discount access for a pass
     func validateDiscountAccess(forPass pass: Pass, discount: DiscountAccess) -> Bool {
         
         if let discountAccess = pass.discountAccess {

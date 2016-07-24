@@ -55,6 +55,7 @@ struct Manager: ManagerType {
     var dateOfBirth: NSDate
     var managerType: Managers
     
+    //Init parameters are optional so they can throw errors when information is not complete
     init(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?, socialSecurityNumber: Int?, dateOfBirth: String?, managerType: Managers?) throws {
         
         guard let firstOfName = firstName, let lastOfName = lastName else { throw Error.MissingName }

@@ -15,8 +15,6 @@ class ViewController: UIViewController {
     //-----------------------
     var kioskControl = KioskControl()
     var entrant: Entrant?
-    var sound = Sound()
-    var soundT = String()
 
     //-----------------------
     //MARK: View
@@ -27,6 +25,10 @@ class ViewController: UIViewController {
         //----------------------------------------------------------------------------------------------------------------------------------------------------------//
         //Uncomment individual entrants and swipe methods below to test creating different types of entrants and swiping their passes for areas, rides and discounts//
         //----------------------------------------------------------------------------------------------------------------------------------------------------------//
+        
+        //------------------------------------------------------//
+        //Use marks for quick access for different swipe methods//
+        //------------------------------------------------------//
         
         //-----------------------
         //MARK: Entrants
@@ -43,7 +45,7 @@ class ViewController: UIViewController {
         }
         */
         
-        //Classic guest - Set month and day to current day for entrant birthday. Format is MM/dd/yy
+        //Classic guest - Set month and day to current days date for entrant birthday. Format is MM/dd/yy
         /*
         do {
             let classicGuest = try Guest(dateOfbirth: "07/07/98", guestType: .Classic)
